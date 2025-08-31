@@ -2,6 +2,13 @@
   "name": "markdown-preview-wavedrom",
   "displayName": "Markdown Preview Wavedrom",
   "description": "Add Wavedrom support to VSCode Markdown Preview",
+  "keywords": [
+    "wavedrom",
+    "markdown",
+    "timing",
+    "diagram",
+    "preview"
+  ],
   "version": "0.1.0",
   "publisher": "bmpenuelas",
   "license": "MIT",
@@ -25,14 +32,15 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "markdown.markdownItPlugins": true,
     "configuration": {
       "type": "object",
       "title": "Markdown Preview WaveDrom",
       "properties": {
-        "markdown-preview-wavedrom.prefix": {
+        "markdown-preview-wavedrom.LanguageIdentifier": {
           "type": "string",
-          "default": "",
-          "description": "Optional prefix for WaveDrom code fences (e.g., 'diag-' for ```diag-wavedrom)."
+          "default": "wavedrom",
+          "description": "Language identifier to mark WaveDrom code fences in markdown files (e.g., 'wavedrom' for ```wavedrom)."
         }
       }
     }
@@ -46,8 +54,10 @@
     "test": "vscode-test"
   },
   "dependencies": {
+    "json5": "^2.2.3",
     "markdown-it": "^14.1.0",
-    "wavedrom": "^3.3.0"
+    "onml": "^2.1.0",
+    "wavedrom": "^3.5.0"
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.2",

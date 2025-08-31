@@ -1,14 +1,12 @@
 declare module "wavedrom" {
-  interface WaveJSON {
-    signal: { name: string; wave: string; data?: string[] }[];
-    head?: string[];
-    foot?: string[];
+  interface RenderOptions {
+    config?: object;
+    // You can expand this interface if you want stricter typing
   }
 
-  /**
-   * Renders a WaveJSON diagram into an element.
-   * @param waveJSON - The WaveDrom JSON diagram.
-   * @param index - Element ID or index.
-   */
-  export function renderWaveJSON(waveJSON: WaveJSON, index: string | number): void;
+  export function renderAny(
+    data: any,
+    index?: number,
+    options?: RenderOptions
+  ): string;
 }
