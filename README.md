@@ -1,3 +1,5 @@
 # markdown-preview-wavedrom README
 
-Add Wavedrom support to VSCode Markdown Preview
+Adds Wavedrom support to VSCode Markdown Preview
+
+![example](media/screenshot_1.png)
