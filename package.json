@@ -1,7 +1,7 @@
 {
   "name": "markdown-preview-wavedrom",
-  "displayName": "Markdown Preview Wavedrom",
-  "description": "Add Wavedrom support to VSCode Markdown Preview",
+  "displayName": "Markdown Preview WaveDrom",
+  "description": "Add WaveDrom support to VSCode Markdown Preview",
   "keywords": [
     "wavedrom",
     "markdown",
@@ -9,6 +9,7 @@
     "diagram",
     "preview"
   ],
+  "icon": "media/icon.png",
   "version": "0.1.0",
   "publisher": "bmpenuelas",
   "license": "MIT",
@@ -47,6 +48,9 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
+    "publish:marketplace": "vsce package && vsce publish",
+    "publish:openvsx": "bash -c \"read -p 'Enter packaged filename: ' filename && read -sp 'Enter openvsx token: ' token && echo && npx ovsx publish \\\"$filename\\\" -p \\\"$token\\\"\"",
+    "publish": "npm run publish:marketplace && npm run publish:openvsx",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
